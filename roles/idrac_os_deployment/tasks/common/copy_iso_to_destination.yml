@@ -29,6 +29,7 @@
         src: "{{ idrac_os_deployment_custom_iso_file }}"
         dest: "{{ destination.mountpoint }}"
         mode: "preserve"
+        remote_src: "{{ destination.copy_remote_src | default(false)}}"
 
     - name: Fail if destination is unreachable
       when: idrac_os_deployment_copy_to_destination is unreachable
